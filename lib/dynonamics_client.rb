@@ -21,12 +21,10 @@ class DynonamicsClient
         uri = URI.parse(url)
         
         response = Net::HTTP.post_form(uri,data) rescue "ERROR"
-        
-        print response.body + "\n\n"
+
       rescue
       end
       
-      print "Submission time: " +(Time.now.to_f - start_submit_time).to_s + "\n\n"
     end
   
 end
