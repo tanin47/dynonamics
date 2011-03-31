@@ -1,0 +1,16 @@
+Dynonamics
+===========
+Dynonamics prevents your app from crashing by adaptively adjusting your dynos.
+
+Installation
+-----------
+You will need to manually install dynonamics plugin, which can be downloaded here.
+You must put it under /vendor/plugins folder. 
+
+Deploying to Heroku
+-------------------
+To use (add-on) on Heroku, install the (add-on) add-on:
+
+    $ heroku addons:add dynonamics
+
+
