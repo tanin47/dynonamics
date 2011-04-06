@@ -29,14 +29,6 @@ if defined? ActionController
 
         return v
      end
-     
-#     alias_method :old_render,:render
-#     def render(options = nil, extra_options = {}, &block)
-#       print "\n\n\n TEST " + Time.now.to_s + "\n\n\n"
-#       
-#       old_render(options, extra_options = {}, &block)
-#     end
-#      
       
     end
 end
