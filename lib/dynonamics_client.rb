@@ -21,10 +21,23 @@ class DynonamicsClient
       
         require 'net/http'
         require 'uri'
-
-        uri = URI.parse(url)
+    
+        Net::HTTP.version_1_2
         
-        response = Net::HTTP.post_form(uri,data)
+        nvp = []
+        data.each { |k,v|
+          k ||= ""
+          v ||= ""
+          
+          nvp.push("#{CGI.escape(k.to_s)}=#{CGI.escape(v.to_s)}")
+        }
+        nvp = nvp.join('&')
+    
+        parsed_url = URI.parse(url)
+    
+        http = Net::HTTP.new(parsed_url.host,parsed_url.port)
+        http.read_timeout = 10
+        response = http.post(parsed_url.path,nvp)
 
       rescue Exception=>e
         puts "Dynonamics error: #{e}\n" if ENV['DYNONAMICS_DEBUG']
