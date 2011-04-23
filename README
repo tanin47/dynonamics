@@ -32,6 +32,7 @@ Installation
 2. You will need to install Dynonamics as Heroku's plugin by this command line:
 
     $ heroku addons:add dynonamics
+    $ heroku restart
 
 3. Login to Heroku, Go to your app, and go to Dynonamics plugin. You may set your maximum dynos and average waiting time for users here.
    Please note that your maximum dynos should be more than 2 because the minimum dynos is 2.
