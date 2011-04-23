@@ -14,7 +14,9 @@ class DynonamicsClient
   
   private
     def self.submit(url,data) 
-    
+      
+      puts "Dynonamics submit data to #{url} and data=#{data.inspect}" if ENV['DYNONAMICS_DEBUG']
+      
       begin
       
         require 'net/http'
@@ -25,7 +27,7 @@ class DynonamicsClient
         response = Net::HTTP.post_form(uri,data)
 
       rescue Exception=>e
-        print "Dynonamics error: #{e.to_s_with_trace}"
+        puts "Dynonamics error: #{e}\n" if ENV['DYNONAMICS_DEBUG']
       end
       
     end
