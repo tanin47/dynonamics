@@ -14,9 +14,7 @@ class DynonamicsClient
   
   private
     def self.submit(url,data) 
-      
-      start_submit_time = Time.now.to_f
-      
+    
       begin
       
         require 'net/http'
@@ -24,9 +22,10 @@ class DynonamicsClient
 
         uri = URI.parse(url)
         
-        response = Net::HTTP.post_form(uri,data) rescue "ERROR"
+        response = Net::HTTP.post_form(uri,data)
 
-      rescue
+      rescue Exception=>e
+        logger.debug { "Dynonamics error: #{e.to_s_with_trace}"}
       end
       
     end
