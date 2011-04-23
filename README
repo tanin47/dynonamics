@@ -21,7 +21,7 @@ Installation
 	                |
 	                |-- lib
 	                |    |
-	                |	 |-- dynohook.rb
+	                |    |-- dynohook.rb
 	                |    |-- dynonamics_client.rb
 	              	|    |-- workerhook.rb
 	                |    
