@@ -25,7 +25,7 @@ class DynonamicsClient
         response = Net::HTTP.post_form(uri,data)
 
       rescue Exception=>e
-        logger.debug { "Dynonamics error: #{e.to_s_with_trace}"}
+        print "Dynonamics error: #{e.to_s_with_trace}"
       end
       
     end
