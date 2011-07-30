@@ -1,14 +1,25 @@
 class DynonamicsClient
   
+  
+  def self.url
+    if ENV['STAGING']
+      return ENV['DYNONAMICS_STAGING_DYNO_URL']
+    else
+      return ENV['DYNONAMICS_DYNO_URL']
+    end
+  end
+  
   def self.submit_dyno_time(data)
-    if ENV['DYNONAMICS_DYNO_URL']
-      submit(ENV['DYNONAMICS_DYNO_URL'],data)
+    
+    
+    if url
+      submit(url,data)
     end
   end
   
   def self.submit_worker_time(data)
-    if ENV['DYNONAMICS_WORKER_URL']
-      submit(ENV['DYNONAMICS_WORKER_URL'],data)
+    if url
+      submit(url,data)
     end
   end
   
@@ -38,9 +49,11 @@ class DynonamicsClient
         http = Net::HTTP.new(parsed_url.host,parsed_url.port)
         http.read_timeout = 10
         response = http.post(parsed_url.path,nvp)
-
+        
+        return "#{response.inspect}"
+        
       rescue Exception=>e
-        puts "Dynonamics error: #{e}\n" if ENV['DYNONAMICS_DEBUG']
+        return "#{e} #{e.backtrace.join("\n")}"
       end
       
     end

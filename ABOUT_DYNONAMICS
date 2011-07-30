@@ -8,8 +8,6 @@ whowish is a young-tech firm, building several facebook applications, CollegeSwa
 As a small company that hosts all of our facebook applications on Heroku, we recognize the problem of cost.
 That's why we are building Dynonamics to reduce the cost of Dynos.
 
-We are working on auto-scaling Workers also. Please look forward to it!
-
 Here is our applications:
 http://apps.facebook.com/collegeswap
 http://apps.facebook.com/swapsquare
@@ -20,7 +18,7 @@ http://www.friendmage.com
 
 Tanin Na Nakorn
 Chief Technology Officer
-whoWish
+whowish
 23 April 2011
 
 

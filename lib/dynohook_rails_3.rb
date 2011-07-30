@@ -10,7 +10,7 @@ if defined? ActionController
       
       dynonamics_end_second = Time.now.to_f
       
-      if rand(10) == 5
+      if rand(10) == 5 || ENV['DYNONAMICS_TEST_MODE']
         data = {:http_x_request_start=>(heroku_info['HTTP_X_REQUEST_START'].to_f/1000.to_f),
          :rails_start=>dynonamics_start_second,
          :rails_end=>dynonamics_end_second,
